@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* アコーディオン全体デザイン */
+.ac_area {
+  width: 96%; /* 画面横幅の96%の大きさにして */
+  max-width: 900px; /* それでも900pxより大きくならないように */
+  margin: 0 auto; /* 画面の中央寄せ */
+}
+.ac_area li {
+  margin: 10px 0; /* 項目同士のスペースを調整 */
+}
+.ac_area section {
+  /* 箱全体のデコレーション */
+  border: 1px solid #ccc;
+}
+
+/* アコーディオンのクリックする部分のデザイン */
+.title_btn {
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 3% 3% 3% 50px;
+  transition: all 0.5s ease; /* easeは動きの始めと終わりを緩やかにします */
+}
+
+/* クリックして出てくる部分 */
+.text_box {
+  display: none; /* 最初は見えなくしておきます */
+  background-color: #f3f3f3;
+  /* margin: 0 3% 3% 3%; */
+  padding: 3% 3% 3% 50px;
+}
+
+/* 回転矢印 */
+.title_btn::after {
+  content: "";
+  /*絶対配置で矢印の位置を決める*/
+  position: absolute;
+  top: 42%;
+  right: 20px;
+  /*矢印の形状*/
+  width: 13px;
+  height: 13px;
+  border-top: 3px solid #333;
+  border-right: 3px solid #333;
+  transform: rotate(45deg);
+  /*動きの指定*/
+  transition: all 0.3s;
+}
+
+/*クリックした時の矢印の向き*/
+.title_btn.open::after {
+  transform: rotate(135deg);
+}
